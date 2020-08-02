@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="jumbotron">
+        {% if user.is_authenticated %}
+            <h1 class="display-4">Halo, {{ user.username|capfirst }}</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>Are you ready to open the cash register now?</p>
+
+            <a href="{% url 'cashier:createCashier' %}" class="btn btn-primary btn-lg" role="button">Open Cashier</a>
+        {% else %}
+            <h1 class="display-4">Welcome</h1>
+            <p class="lead">This is the ABC POS cashier application, which makes it easy for users to input income and spending costs.</p>
+            <hr class="my-4">
+            <p>Before you use this application, you must login first!</p>
+
+            <a href="{% url 'account:login' %}" class="btn btn-primary btn-lg" role="button">Log In</a>
+        {% endif %}
+    </div>
+    
+    
+{% endblock %}

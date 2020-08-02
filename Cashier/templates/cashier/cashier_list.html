@@ -1,0 +1,17 @@
+{% extends 'Cashier/cashier_base.html' %}
+
+{% block contentCashier %}
+
+<div class="container">
+    <!-- List Cashier -->
+    <h1><strong>Cashier Update:</strong></h1>
+    <div class="list-group">
+        {% for cashier in cashierList %}
+            <a href="{% url 'cashier:detailCashier' pk=cashier.pk %}" class="list-group-item list-group-item-action">
+                {{ cashier.created_date }}
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
